@@ -5,25 +5,30 @@ import "fmt"
 // 示例源码运行Demo
 // 给公众号「网管叨bi叨」发生 go-factory 即可领取
 type AbstractFactory interface {
-	CreateTelevision() ITelevision
-	CreateAirConditioner() IAirConditioner
-}
-
-type ITelevision interface {
-	Watch()
-}
-
-type IAirConditioner interface {
-	SetTemperature(int)
+	CreateTV() TV
+	CreateAirCleaner() AirCleaner
 }
 
 type HuaWeiFactory struct{}
 
-func (hf *HuaWeiFactory) CreateTelevision() ITelevision {
+func (hf *HuaWeiFactory) CreateTV() TV {
 	return &HuaWeiTV{}
 }
-func (hf *HuaWeiFactory) CreateAirConditioner() IAirConditioner {
-	return &HuaWeiAirConditioner{}
+func (hf *HuaWeiFactory) CreateAirCleaner() AirCleaner {
+	return &HuaWeiAirCleaner{}
+}
+
+type XiaoMiFactory struct{}
+
+func (mf *XiaoMiFactory) CreateTV() TV {
+	return &XiaoMiTV{}
+}
+func (mf *XiaoMiFactory) CreateAirCleaner() AirCleaner {
+	return &XiaoMiAirCleaner{}
+}
+
+type TV interface {
+	Watch()
 }
 
 type HuaWeiTV struct{}
@@ -32,48 +37,43 @@ func (ht *HuaWeiTV) Watch() {
 	fmt.Println("Watch HuaWei TV")
 }
 
-type HuaWeiAirConditioner struct{}
+type XiaoMiTV struct{}
 
-func (ha *HuaWeiAirConditioner) SetTemperature(temp int) {
-	fmt.Printf("HuaWei AirConditioner set temperature to %d ℃\n", temp)
-}
-
-type MiFactory struct{}
-
-func (mf *MiFactory) CreateTelevision() ITelevision {
-	return &MiTV{}
-}
-func (mf *MiFactory) CreateAirConditioner() IAirConditioner {
-	return &MiAirConditioner{}
-}
-
-type MiTV struct{}
-
-func (mt *MiTV) Watch() {
+func (mt *XiaoMiTV) Watch() {
 	fmt.Println("Watch HuaWei TV")
 }
 
-type MiAirConditioner struct{}
+type AirCleaner interface {
+	SetTemperature(int)
+}
 
-func (ma *MiAirConditioner) SetTemperature(temp int) {
+type HuaWeiAirCleaner struct{}
+
+func (ha *HuaWeiAirCleaner) SetTemperature(temp int) {
+	fmt.Printf("HuaWei AirConditioner set temperature to %d ℃\n", temp)
+}
+
+type XiaoMiAirCleaner struct{}
+
+func (ma *XiaoMiAirCleaner) SetTemperature(temp int) {
 	fmt.Printf("Mi AirConditioner set temperature to %d ℃\n", temp)
 }
 
 
 func main() {
 	var factory AbstractFactory
-	var tv ITelevision
-	var air IAirConditioner
+	var tv TV
+	var air AirCleaner
 
 	factory = &HuaWeiFactory{}
-	tv = factory.CreateTelevision()
-	air = factory.CreateAirConditioner()
+	tv = factory.CreateTV()
+	air = factory.CreateAirCleaner()
 	tv.Watch()
 	air.SetTemperature(25)
 
-	factory = &MiFactory{}
-	tv = factory.CreateTelevision()
-	air = factory.CreateAirConditioner()
+	factory = &XiaoMiFactory{}
+	tv = factory.CreateTV()
+	air = factory.CreateAirCleaner()
 	tv.Watch()
 	air.SetTemperature(26)
 }

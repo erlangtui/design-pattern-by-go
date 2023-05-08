@@ -9,9 +9,22 @@ type MathOperator interface {
 	ComputeResult() int
 }
 
-// OperatorFactory 工厂接口，由具体工厂类来实现
-type OperatorFactory interface {
-	Create() MathOperator
+// MultiOperator 实际的产品类--乘法运算器
+type MultiOperator struct {
+	*BaseOperator
+}
+func (m *MultiOperator) ComputeResult() int {
+	return m.operandA * m.operandB
+}
+
+// PlusOperator 实际的产品类--加法运算器
+type PlusOperator struct {
+	*BaseOperator
+}
+
+// ComputeResult 计算并获取结果
+func (p *PlusOperator) ComputeResult() int {
+	return p.operandA + p.operandB
 }
 
 // BaseOperator 是所有 Operator 的基类
@@ -29,23 +42,18 @@ func (o *BaseOperator) SetOperandB(operand int) {
 	o.operandB = operand
 }
 
-//PlusOperatorFactory 是 PlusOperator 加法运算器的工厂类
+// OperatorFactory 工厂接口，由具体工厂类来实现
+type OperatorFactory interface {
+	Create() MathOperator
+}
+
+// PlusOperatorFactory 是 PlusOperator 加法运算器的工厂类
 type PlusOperatorFactory struct{}
 
 func (pf *PlusOperatorFactory) Create() MathOperator {
 	return &PlusOperator{
 		BaseOperator: &BaseOperator{},
 	}
-}
-
-//PlusOperator 实际的产品类--加法运算器
-type PlusOperator struct {
-	*BaseOperator
-}
-
-//ComputeResult 计算并获取结果
-func (p *PlusOperator) ComputeResult() int {
-	return p.operandA + p.operandB
 }
 
 // MultiOperatorFactory 是乘法运算器产品的工厂
@@ -56,15 +64,6 @@ func (mf *MultiOperatorFactory) Create() MathOperator{
 		BaseOperator: &BaseOperator{},
 	}
 }
-
-// MultiOperator 实际的产品类--乘法运算器
-type MultiOperator struct {
-	*BaseOperator
-}
-func (m *MultiOperator) ComputeResult() int {
-	return m.operandA * m.operandB
-}
-
 
 // 测试运行
 func main() {
