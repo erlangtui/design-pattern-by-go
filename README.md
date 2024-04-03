@@ -20,7 +20,7 @@
   - [Go学设计模式--怕把核心代码改乱，记得用代理模式](https://mp.weixin.qq.com/s/FTXkgxkUzsHMIspCK60G4w) 
   - [源码：Go实现代理模式](https://github.com/kevinyan815/design-pattern-by-go/blob/master/src/proxy)
 - 装饰器模式
-  - [教程 -- Go学设计模式--装饰器和职责链，哪个模式实现中间件更科学？]()
+  - [教程 -- Go学设计模式--装饰器和职责链，哪个模式实现中间件更科学？](https://mp.weixin.qq.com/s/_e9Qa97gZvgv9n-pFB4lFw)
   - [源码：Go实现装饰器模式](https://github.com/kevinyan815/design-pattern-by-go/tree/master/src/decorator)
 - 组合模式
   - [教程--组合，一个对数据结构算法和职场都有提升的设计模式](https://mp.weixin.qq.com/s/JKWbyr4Yt7A6l1nFsANUcQ)
@@ -43,7 +43,7 @@
   - [教程--拒绝Go代码臃肿，其实在这几块可以用下观察者模式](https://mp.weixin.qq.com/s/4NqjkXVqFPamEc_QsyRipA)
   - [源码：Go实现观察者模式和事件分发器](https://github.com/kevinyan815/design-pattern-by-go/tree/master/src/observer)
 - 模版模式
-  - [教程--提炼流程，减少重复开发就靠它了](https://mp.weixin.qq.com/s/W1m1IV9iwXzp3QcSchk7PQ)
+  - [教程--提炼流程，减少重复开发就靠它了](https://mp.weixin.qq.com/s/-Ysho1jI9MfrAIrplzj7UQ)
   - [源码：Go实现模版模式](https://github.com/kevinyan815/design-pattern-by-go/tree/master/src/template)
 - 策略模式
   - [Go 程序里 if else 分支太多？试着用策略模式治理一下吧](https://mp.weixin.qq.com/s/IQsojcdwLZ1g0TgVQDoqVw)
@@ -64,8 +64,14 @@
   - [教程：Go设计模式-备忘录模式](https://mp.weixin.qq.com/s/RikZAeI2Pic4vYwVNh4HnA)
   - [源码：用Go实现备忘录模式](https://github.com/kevinyan815/design-pattern-by-go/tree/master/src/memento)
 - 命令模式
-  - [教程：Coming Soon]
+  - [教程：Go设计模式-命令模式](https://mp.weixin.qq.com/s/n1R1fnRZuDwlaQqsDh5y3g)
   - [源码：用Go实现命令模式](https://github.com/kevinyan815/design-pattern-by-go/tree/master/src/command)
+- 解释器模式
+  - [教程：Go设计模式-解释器模式](https://mp.weixin.qq.com/s/8v0UZWygCvkbye4Y0P-3sQ)
+  - [源码：用Go实现解释器模式](https://github.com/kevinyan815/design-pattern-by-go/tree/master/src/interpreter)
+- 中介者模式
+  - [教程：Go设计模式-中介者模式](https://mp.weixin.qq.com/s/91-XUm5Gn9oQLd_F4dLb3A)
+  - [源码：用Go实现中介者模式](https://github.com/kevinyan815/design-pattern-by-go/tree/master/src/mediator)
 
 ## 求支持
 请扫码关注公众号，支持下；也可通过公众号联系到我以及阅读更多精品内容
